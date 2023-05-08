@@ -15,7 +15,7 @@ const ApiSelect: React.FC<Props> = (props) => {
 		label,
 		hasMany,
 		required,
-		loader,
+		custom,
 		admin: {
 			readOnly = false,
 			style = {},
@@ -37,7 +37,7 @@ const ApiSelect: React.FC<Props> = (props) => {
 
 	useEffect(() => {
 		async function getData() {
-			setOptions(await loader());
+			setOptions(await custom.loader());
 			setIsReadOnly(readOnly);
 		}
 

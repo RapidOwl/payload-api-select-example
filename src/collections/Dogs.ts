@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload/types';
-import DogBreedApiSelect from '../api-select/DogBreedApiSelect';
+import GetDogBreeds from '../data/GetDogBreeds';
+import ApiSelect from '../api-select/ApiSelect';
 
 const Dogs: CollectionConfig = {
 	slug: 'dog-metadata',
@@ -21,9 +22,12 @@ const Dogs: CollectionConfig = {
 			label: 'Breed',
 			type: 'text',
 			required: true,
+			custom: {
+				loader: GetDogBreeds
+			},
 			admin: {
 				components: {
-					Field: DogBreedApiSelect,
+					Field: ApiSelect,
 				},
 			},
 		},
